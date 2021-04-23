@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block content%}
+<br />
+<br />
+<br />
+<div class="container text-center">
+  <h1 style="font-family: 'Shadows Into Light', cursive">
+    <b>{{ blog.blog_title }}</b>
+  </h1>
+  <h4>{{ blog.blog_date }}</h4>
+</div>
+<div class="container">
+  <br />
+  <p>{{ blog.blog_descritions|safe }}</p>
+  <p>
+    <br />
+    <br />
+    <a class="nav-link" href="{% url 'all_blogs' %}"
+      ><button
+        type="button"
+        class="btn btn-light read"
+        style="margin-left: 580px"
+      >
+        Blogs Page
+      </button></a
+    >
+  </p>
+</div>
+
+{% endblock %}

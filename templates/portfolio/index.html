@@ -1,0 +1,121 @@
+{% extends 'base.html' %} {% load static %} {% block content%}
+
+
+
+<div class="contain card-image" style="background-image: url(https://marketplace.canva.com/EAD7R7e3rZg/1/0/800w/canva-black-and-gray-abstract-linkedin-banner-9T_B0f66A4o.jpg);">
+    <div class="text-white text-center rgba-stylish-strong py-5 px-4">
+      <div class="py-5">
+  
+        <!-- Content -->
+        <h5 class="h5 orange-text"><i class="fas fa-camera-retro"></i>Hey,I am </h5>
+        <h2 class="card-title h2 my-4 py-2">Shivam Prakash</h2>
+        <p class="mb-4 pb-3 px-md-5 mx-md-5 p1">I'm a Django Developer who's Machine and Deep Learning Enthusiast !!!</p>
+        <a class="btn peach-gradient"href="mailto:shivamprakashsp@gmail.com"
+><button type="button" class="btn btn-dark" style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);  font-family: 'Shadows Into Light', cursive;">Get in touch</button></a>
+
+      </div>
+    </div>
+  </div>
+
+<div class = "sidebar">
+    <a href="https://github.com/shivamprakashsp" target="_blank">
+        <img src= "{% static 'portfolio/images/github.png' %}" height =50 widht=50></img>
+    </a>
+    
+    <a href="https://www.linkedin.com/in/shivamprakashsp/" target="_blank">
+        <img src= "{% static 'portfolio/images/linkedin.png' %}" height =50 widht=50></img>
+    </a>
+    <a href="https://www.instagram.com/shivam._.prakash/" target="_blank">
+        <img src= "{% static 'portfolio/images/instagram.png' %}" height =50 widht=50></img>
+    </a>
+    <a href="https://www.facebook.com/shivamprakashsp/" target="_blank">
+        <img src= "{% static 'portfolio/images/facebook.png' %}" height =50 widht=50></img>
+    </a>
+   
+</div>
+  
+
+
+<div class="container">
+    <!--Section: Content-->
+    <br>
+    <h2>Projects</h2>
+        <hr>
+    <section class="text-center card1">
+        
+
+      <div class="row card1" style="    border-style: solid;
+      border-color: #c9ded9;
+      border-width: 0.5px;">
+        
+        {% for project in projects %}
+
+        <div class="col-lg-4 col-md-4 mb-4" >
+          <div class="card card1">
+            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                <a href="{{ project.url }}"                   target="_blank"
+                > <img class="img-thumbnail im" src="{{ project.image.url }}" alt="Card image cap">
+                <!-- <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div> -->
+              </a>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{ project.title }}</h5>
+              <a href="{{ project.url }}" target="_blank"
+              class="btn btn-primary" style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);  font-family: 'Shadows Into Light', cursive;">View</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+       
+       
+
+     
+        
+      
+    </section>
+
+   
+</div>
+
+<div class="container">
+    <!--Section: Content-->
+    <br>
+    <h2>Blogs</h2>
+        <hr>
+    <section class="text-center card1">
+        
+
+      <div class="row card1" style="    border-style: solid;
+      border-color: #c9ded9;
+      border-width: 0.5px;">
+        
+        {% for blog in blogs %}
+        <div class="col-lg-4 col-md-4 mb-4">
+          <div class="card card1">
+            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+              </a>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{ blog.blog_title }} </h5>
+              
+              <a href="{% url 'detail' blog.id %}" target="_blank" class="btn btn-primary" style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);  font-family: 'Shadows Into Light', cursive;">View</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+       
+       
+
+     
+        
+      
+    </section>
+
+   
+</div>
+
+
+{% endblock %}
